@@ -1,4 +1,4 @@
-# 『SOLID 重構挑戰練習』
+# StringToColor 第二版
 
 ```csharp
 using System;
@@ -93,4 +93,17 @@ namespace StringToColor
 }
 ```
 
-Transfer的方法只負責傳送name，然後接收ColorFactory的結果
+上一版仍有違反單一責任原則
+
+在Transfer方法當中有
+1.註冊顏色
+2.顏色判別
+3.回傳顏色
+
+共3個行為，因此分解出來
+
+ColorManagement負責註冊顏色
+
+ColorFactory負責進行產出Color
+
+符合了單一責任原則
