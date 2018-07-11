@@ -26,7 +26,7 @@ namespace StringToColor
 	{
 		private string colorName;
 
-		private List<IColor> colors;
+		private List<ColorManagement.IColor> colors;
 
 		public ColorFactory(string name)
 		{
@@ -50,6 +50,11 @@ namespace StringToColor
 
 	public class ColorManagement
 	{
+		public interface IColor
+		{
+			Color GetColor();
+		}
+
 		public static List<IColor> RegistereColor()
 		{
 			List<IColor> colors = new List<IColor>();
@@ -60,34 +65,29 @@ namespace StringToColor
 
 			return colors;
 		}
-	}
 
-	public interface IColor
-	{
-		Color GetColor();
-	}
-
-	public class Red : IColor
-	{
-		public Color GetColor()
+		public class Red : IColor
 		{
-			return Color.FromArgb(0xFF, 0xFF, 0x00, 0x00);
+			public Color GetColor()
+			{
+				return Color.FromArgb(0xFF, 0xFF, 0x00, 0x00);
+			}
 		}
-	}
 
-	public class Green : IColor
-	{
-		public Color GetColor()
+		public class Green : IColor
 		{
-			return Color.FromArgb(0xFF, 0x00, 0xFF, 0x00);
+			public Color GetColor()
+			{
+				return Color.FromArgb(0xFF, 0x00, 0xFF, 0x00);
+			}
 		}
-	}
 
-	public class Blue : IColor
-	{
-		public Color GetColor()
+		public class Blue : IColor
 		{
-			return Color.FromArgb(0xFF, 0x00, 0x00, 0xFF);
+			public Color GetColor()
+			{
+				return Color.FromArgb(0xFF, 0x00, 0x00, 0xFF);
+			}
 		}
 	}
 }
