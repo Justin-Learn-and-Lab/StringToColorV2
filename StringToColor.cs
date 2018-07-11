@@ -1,3 +1,4 @@
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -88,3 +89,6 @@ namespace StringToColor
 		}
 	}
 }
+```
+
+Transfer的方法只負責傳送name，然後接收ColorFactory的結果
